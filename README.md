@@ -81,7 +81,7 @@ API 用のキー 2 つとユーザー用のトークン 2 つを、本ツール�
 
 ### 3.3. ブックマークレットの実行 (ブックマークまたはモーメントのみ)
 
-1. WEB 版 Twitter をブラウザで開く。
+1. WEB 版 Twitter をブラウザで開き、開発者ツールのコンソール画面を開いて JavaScript を実行できる状態にする。
 2. ブックマークまたはモーメントのページの一番上の状態で、以下の「ツイート取り込み開始ブックマークレット」を実行する (ブックマーク・モーメント共通) 。
 3. 少しずつページを一番下までスクロールしていく。
 4. ページ一番下まで来たら、以下の「ツイート取り込み終了ブックマークレット」を実行する (ブックマーク・モーメント別) 。
@@ -90,23 +90,11 @@ API 用のキー 2 つとユーザー用のトークン 2 つを、本ツール�
 	- モーメントの場合は、各モーメントを別々に保存します。保存したいモーメントをそれぞれ全て保存してください。
 	- ファイル名をもとに php から読み込むので、ファイル名を変更しないでください。
 
-「ツイート取り込み開始ブックマークレット」(ブックマーク・モーメント共通)
+ブックマークレット
 
-```js
-javascript:(()=>{const s=document.createElement('script');s.src='https://kerupani129s.github.io/twitter-backup-tool/o.js';document.head.appendChild(s);})();
-```
-
-「ツイート取り込み終了ブックマークレット」(ブックマーク用)
-
-```js
-javascript:(()=>{const s=document.createElement('script');s.src='https://kerupani129s.github.io/twitter-backup-tool/sb.js';document.head.appendChild(s);})();
-```
-
-「ツイート取り込み終了ブックマークレット」(モーメント用)
-
-```js
-javascript:(()=>{const s=document.createElement('script');s.src='https://kerupani129s.github.io/twitter-backup-tool/sm.js';document.head.appendChild(s);})();
-```
+- [「ツイート取り込み開始ブックマークレット」(ブックマーク・モーメント共通)](https://kerupani129s.github.io/twitter-backup-tool/bookmarklet-observe.js)
+- [「ツイート取り込み終了ブックマークレット」(ブックマーク用)](https://kerupani129s.github.io/twitter-backup-tool/bookmarklet-save-bookmarks.js)
+- [「ツイート取り込み終了ブックマークレット」(モーメント用)](https://kerupani129s.github.io/twitter-backup-tool/bookmarklet-save-moment.js)
 
 ### 3.4. ローカルサーバーで php を実行し、WEB ブラウザで確認
 
@@ -150,6 +138,7 @@ wget --page-requisites \
 	- 一部ツイートが正しく保存されないことがあります。
 		- 例：名前に絵文字を含むユーザーが画像に関連付けられている場合、その絵文字も画像の 1 つとして認識されてしまう。
 	- ブックマークレットは日本語の WEB 版 Twitter を想定しており、他の言語では正しく取得できません。URL に `?lang=ja` を付けるなどして日本語版で表示するか、他の言語用にブックマークレットのソースコードの改変をお願いします。
+	- WEB 版 Twitter では Content-Security-Policy が設定されているため、許可されていないドメインの外部 JavaScript を実行するブックマークレットは実行できません。
 - リストまたはモーメントの Total Count について
 	- リストまたはモーメントの一番上に表示される Total Count は、リストやモーメントそのものの個数であり、ユーザーやツイートの合計数ではありません。
 	- 各リストまたはモーメントのそれぞれに表示される Total Count は、リストまたはモーメントそれぞれのユーザーまたはツイートの数です。
