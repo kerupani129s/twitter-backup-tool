@@ -92,9 +92,9 @@ API 用のキー 2 つとユーザー用のトークン 2 つを、本ツール�
 
 ブックマークレット
 
-- [「ツイート取り込み開始ブックマークレット」(ブックマーク・モーメント共通)](docs/twitter-backup-tool/bookmarklet-observe.js)
+- [「ツイート取り込み開始ブックマークレット」(ブックマーク・モーメント共通)](docs/bookmarklet-observe.js)
 - [「ツイート取り込み終了ブックマークレット」(ブックマーク用)](docs/bookmarklet-save-bookmarks.js)
-- [「ツイート取り込み終了ブックマークレット」(モーメント用)](docs/twitter-backup-tool/bookmarklet-save-moment.js)
+- [「ツイート取り込み終了ブックマークレット」(モーメント用)](docs/bookmarklet-save-moment.js)
 
 ### 3.4. ローカルサーバーで php を実行し、WEB ブラウザで確認
 
